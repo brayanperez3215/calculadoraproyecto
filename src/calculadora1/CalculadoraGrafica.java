@@ -5,15 +5,18 @@
  */
 package calculadora1;
 
+import calculadoraproyecto.CalculadoraAritmetica;
+
 /**
  *
  * @author Estudiantes
  */
 public class CalculadoraGrafica extends javax.swing.JFrame {
+   
+    CalculadoraAritmetica miCalculadora=new CalculadoraAritmetica();
     
-    
-   private final boolean punto=true; 
-   string valor1, valor2, signo, contenido;
+   private boolean punto=true; 
+   String valor1, valor2, signo, contenido;
    double resultado;
 
     /**
@@ -32,11 +35,10 @@ public class CalculadoraGrafica extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
+        txtmostrar = new javax.swing.JTextField();
         btntangente = new javax.swing.JButton();
         btncoseno = new javax.swing.JButton();
         btnseno = new javax.swing.JButton();
-        btnarcocoseno = new javax.swing.JButton();
         btn4 = new javax.swing.JButton();
         btnparentesis = new javax.swing.JButton();
         btn7 = new javax.swing.JButton();
@@ -60,20 +62,18 @@ public class CalculadoraGrafica extends javax.swing.JFrame {
         btnmultiplicar = new javax.swing.JButton();
         btnresta = new javax.swing.JButton();
         btn6 = new javax.swing.JButton();
-        btnarcosecante = new javax.swing.JButton();
-        btnarcotangente = new javax.swing.JButton();
         btnborrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Calculadora");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtmostrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtmostrarActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 360, 30));
+        getContentPane().add(txtmostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 360, 30));
 
         btntangente.setText("TAN");
         btntangente.addActionListener(new java.awt.event.ActionListener() {
@@ -98,14 +98,6 @@ public class CalculadoraGrafica extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnseno, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, 30));
-
-        btnarcocoseno.setText("ARCOS");
-        btnarcocoseno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnarcocosenoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnarcocoseno, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, 30));
 
         btn4.setText("4");
         btn4.addActionListener(new java.awt.event.ActionListener() {
@@ -291,17 +283,6 @@ public class CalculadoraGrafica extends javax.swing.JFrame {
         });
         getContentPane().add(btn6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, -1, 30));
 
-        btnarcosecante.setText("ARCSEN");
-        btnarcosecante.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnarcosecanteActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnarcosecante, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, 30));
-
-        btnarcotangente.setText("ARCTAN");
-        getContentPane().add(btnarcotangente, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, -1, 30));
-
         btnborrar.setText("<---");
         btnborrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -324,10 +305,6 @@ public class CalculadoraGrafica extends javax.swing.JFrame {
     private void btnsenoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsenoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnsenoActionPerformed
-
-    private void btnarcocosenoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnarcocosenoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnarcocosenoActionPerformed
 
     private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
         // TODO add your handling code here:
@@ -379,6 +356,19 @@ public class CalculadoraGrafica extends javax.swing.JFrame {
 
     private void btnpuntoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpuntoActionPerformed
         // TODO add your handling code here:
+        contenido=txtmostrar.getText();
+        
+        if(contenido.length()<=0){
+            txtmostrar.setText("0.");
+        }else
+            if(txtmostar.getText().contains(".")) {
+                
+            }else{
+                txtmostrar.setText(txtmostrar.getText()+".");
+                punto=false;
+            }
+            
+
     }//GEN-LAST:event_btnpuntoActionPerformed
 
     private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
@@ -413,6 +403,11 @@ public class CalculadoraGrafica extends javax.swing.JFrame {
 
     private void btnsumarestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsumarestaActionPerformed
         // TODO add your handling code here:
+        contenido=(txtmostar.getText();
+        if(contenido.length()>0){
+            resultado=(-1)*double.parsedouble(string contenido1 = contenido;
+)
+        }
     }//GEN-LAST:event_btnsumarestaActionPerformed
 
     private void btnsumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsumaActionPerformed
@@ -432,17 +427,13 @@ public class CalculadoraGrafica extends javax.swing.JFrame {
         txtmostar.setText(txtmostrar.getText()+"6");
     }//GEN-LAST:event_btn6ActionPerformed
 
-    private void btnarcosecanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnarcosecanteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnarcosecanteActionPerformed
-
     private void btnborrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnborrarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnborrarActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtmostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtmostrarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtmostrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -491,9 +482,6 @@ public class CalculadoraGrafica extends javax.swing.JFrame {
     private javax.swing.JButton btn9;
     private javax.swing.JButton btnC;
     private javax.swing.JButton btnCE;
-    private javax.swing.JButton btnarcocoseno;
-    private javax.swing.JButton btnarcosecante;
-    private javax.swing.JButton btnarcotangente;
     private javax.swing.JButton btnborrar;
     private javax.swing.JButton btncoseno;
     private javax.swing.JButton btndividir;
@@ -508,12 +496,16 @@ public class CalculadoraGrafica extends javax.swing.JFrame {
     private javax.swing.JButton btnsuma;
     private javax.swing.JButton btnsumaresta;
     private javax.swing.JButton btntangente;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField txtmostrar;
     // End of variables declaration//GEN-END:variables
 
     private static class txtmostar {
 
         private static void setText(String string) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        private static Object getText() {
             throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
 
